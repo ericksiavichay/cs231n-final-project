@@ -81,8 +81,6 @@ def load_dataset(data_dir):
     """
 
     imgs = []
-    # gt_masks = []
-    names = []
     # Load all the images under 'data_dir/imgs' and corresponding
     # segmentation masks under 'data_dir/gt'.
     for fname in sorted(os.listdir(data_dir)):
@@ -90,11 +88,4 @@ def load_dataset(data_dir):
             # Load image
             img = io.imread(os.path.join(data_dir, fname))
             imgs.append(img)
-            names.append(fname)
-            # Load corresponding gt segmentation mask
-            # mask_fname = fname[:-4] + '.png'
-            # gt_mask = io.imread(os.path.join(data_dir, 'gt', mask_fname))
-            # gt_mask = (gt_mask != 0).astype(int) # Convert to binary mask (0s and 1s)
-            # gt_masks.append(gt_mask)
-
-    return imgs, names
+    return imgs
